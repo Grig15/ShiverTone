@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShiverTone — Vintage Effects Price Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-inner">
+        <div class="logo">
+            <span class="logo-name">ShiverTone</span>
+            <span class="logo-sub">Vintage Effects · Real Prices · Pre-2000</span>
+        </div>
+        <div class="header-stats">
+            <div class="stat-item">
+                <div class="stat-value">{{ stats.total }}</div>
+                <div class="stat-label">Sold Listings</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">${{ stats.avg_price }}</div>
+                <div class="stat-label">Avg Price</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="main">
+
+    <section class="search-section">
+        <div class="search-title">Search Sold Listings</div>
+        <div class="search-box">
+            <input
+                type="text"
+                class="search-input"
+                id="searchInput"
+                placeholder="Tone Bender, Fuzz Face, Big Muff..."
+                autocomplete="off"
+            >
+            <button class="search-btn" onclick="doSearch()">Search</button>
+        </div>
+    </section>
+
+    <div class="results-summary" id="resultsSummary"></div>
+
+    <div class="price-stats" id="priceStats">
+        <div class="price-stat">
+            <div class="price-stat-value" id="statAvg">—</div>
+            <div class="price-stat-label">Average Sold</div>
+        </div>
+        <div class="price-stat">
+            <div class="price-stat-value" id="statMin">—</div>
+            <div class="price-stat-label">Lowest Sold</div>
+        </div>
+        <div class="price-stat">
+            <div class="price-stat-value" id="statMax">—</div>
+            <div class="price-stat-label">Highest Sold</div>
+        </div>
+        <div class="price-stat">
+            <div class="price-stat-value" id="statCount">—</div>
+            <div class="price-stat-label">Total Sales</div>
+        </div>
+    </div>
+
+    <div class="loading" id="loading">Searching the vault...</div>
+
+    <div id="results">
+        <div class="empty-state">
+            <div class="empty-state-icon">🎛️</div>
+            <div class="empty-state-text">Search for any vintage pedal</div>
+            <div class="empty-state-sub">Tone Bender · Fuzz Face · Big Muff · Dallas Arbiter · Colorsound</div>
+        </div>
+    </div>
+
+</main>
+
+<footer class="footer">
+    ShiverTone — Vintage Effects Price Intelligence · Pre-2000 Only · eBay + Reverb + Yahoo Japan
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

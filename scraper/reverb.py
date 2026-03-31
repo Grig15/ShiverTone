@@ -36,6 +36,7 @@ async def scrape_reverb_sold(search_term: str, max_pages: int = 3):
                 f"?query={search_term.replace(' ', '%20')}"
                 f"&product_type=effects-and-pedals"
                 f"&show_only_sold=true"
+                f"&decades[]=196&decades[]=197&decades[]=198&decades[]=199"
                 f"&page={page_num}"
             )
             print(f"  📄 Scraping page {page_num}: {url}")
